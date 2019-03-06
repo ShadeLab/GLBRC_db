@@ -1,5 +1,5 @@
 # GLBRC_db
 
-# database has been moved to phyllosphere repository
+# This is the most up to date authoritative version of the GLBRC database
 
-Shadelab/phyllosphere/Data/GLBRC_bioenergy_db.db
+Any other projects making use of this database should check that local or copied database versions are updated with this version.
