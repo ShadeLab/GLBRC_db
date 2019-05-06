@@ -59,9 +59,9 @@ map_complete <- full_join(map_time, weather)
 
 
 #subset metadata for metatranscriptomes, unique, and 2017
-metaT_2017 <- subset(map_complete, exclude_from_analysis == "N" & sequencing_type == 'Metatranscriptome' & year == "2017")
-dim(metag_2016)
+metaT_2016_17 <- subset(map_complete, exclude_from_analysis == "N" & sequencing_type == 'Metatranscriptome')
+
 
 # write out file
-write.table(metaT_2017, file = "R/Outputs/2017_MetaT_map.txt", sep = "\t", row.names=FALSE, quote=FALSE)
+write.table(metaT_2016_17, file = "R/Outputs/2016_17_MetaT_map.txt", sep = "\t", row.names=FALSE, quote=FALSE)
 
