@@ -18,6 +18,7 @@ dbListFields(glbrc, 'plant')
 dbListFields(glbrc, 'sequencing')
 dbListFields(glbrc, 'soil')
 dbListFields(glbrc, 'nucleic_acids')
+dbListFieldss(glbrc, 'plot')
 
 #get tables into R
 glbrc_NA <- dbGetQuery(glbrc, "select * from nucleic_acids") 
