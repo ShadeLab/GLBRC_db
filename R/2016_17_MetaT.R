@@ -57,11 +57,42 @@ sub_weather <- weather[weather$sampling_date %in% map_time$sampling_date,]
 #merging dataframes - map file and weather
 map_complete <- full_join(map_time, weather)
 
+write.table(map_complete, file = "R/Outputs/Full_map2016-17.txt", sep = "\t", row.names = FALSE, quote = FALSE)
 
 #subset metadata for metatranscriptomes, unique, and 2017
 metaT_2016_17 <- subset(map_complete, exclude_from_analysis == "N" & sequencing_type == 'Metatranscriptome')
 
+metaT_2016_17Small <- metaT_2016_17 %>%
+  select(!(c(sampleID, 
+             plotID, 
+             plot_name, 
+             expt_code, 
+             soil_name, 
+             number_cores, 
+             plant_name, 
+             date_of_extraction, 
+             replicate_extraction, 
+             source_mass, 
+             extraction_method, 
+             elution_vol_ul, 
+             concentration_ng_per_ul, 
+             ratio_260_280, 
+             conc_ng_per_g_source, 
+             extracted_by, 
+             nucleic_acid_name, 
+             sequencing_date, 
+             conc_sent_ng_per_ul, 
+             submitted_for_sequencing, 
+             sequencing_successful, 
+             duplicate_submitted, 
+             dup_sequencing_name, 
+             exclude_from_analysis,
+             date, 
+             Year,
+             soil_temp_5_cm_bare_avg,
+             soil_temp_5_cm_sod_avg)))
+
 
 # write out file
-write.table(metaT_2016_17, file = "R/Outputs/2016_17_MetaT_map.txt", sep = "\t", row.names=FALSE, quote=FALSE)
+write.table(metaT_2016_17Small, file = "R/Outputs/2016-17_MetaT_map.txt", sep = "\t", row.names=FALSE, quote=FALSE)
 
